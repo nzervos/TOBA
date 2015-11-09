@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author NikoZ
  */
 @WebServlet(urlPatterns = {"/User"})
-public class User extends Serializable {
+public class User implements Serializable {
     
     private String firstName;
     private String lastName;

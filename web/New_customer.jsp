@@ -9,7 +9,7 @@
                 <a href="New_customer.jsp">New Customer</a> &nbsp;
             </nav>
         </div>
-        <form action="User" method="post">
+        <form action="NewCustomerServlet" method="post">
             <input type="hidden" name="action" value="add">
             <label>First Name:</label>
             <input type="text" name="firstname" required><br>
@@ -27,8 +27,8 @@
             <input type="text" name="zip" required><br>
             <label>Email:</label>
             <input type="email" name="email" required><br>
-            <input type="submit" name="submit">
-            <input type="reset" value="Submit" name="reset">
+            <input type="submit" value="Submit" name="submit">
+            <input type="reset" value="Reset" name="reset">
             
         </form>
 

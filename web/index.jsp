@@ -7,7 +7,6 @@
                 <a href="index.jsp">Home</a> &nbsp;
                 <a href="Login.jsp">Login</a> &nbsp;
                 <a href="New_customer.jsp">New Customer</a> &nbsp;
-                
             </nav>
         </div>
 

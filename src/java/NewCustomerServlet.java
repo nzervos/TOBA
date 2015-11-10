@@ -25,20 +25,15 @@ public class NewCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, 
                             HttpServletResponse response)
             throws ServletException, IOException{
-        
+
         String url = "/New_customer.jsp";
-        String action = request.getParameter("action");
+    String action = request.getParameter("action");
         
         if (action ==null){
             action = "join";
         }
         if (action.equals("join")){
             url = "/New_customer.jsp";
-        }
-        if (action.equals("reset")){
-            
-            
-            url = "/account_activity.jsp";
         }
         else if (action.equals("add")){
             String firstName = request.getParameter("firstname");
@@ -51,7 +46,6 @@ public class NewCustomerServlet extends HttpServlet {
             String email = request.getParameter("email");
             String userName = lastName.concat(zip);
             String password = "welcome1";
-            
             User user = new User(firstName, lastName, phone, address, city, state, zip, email, userName, password);
             
             request.setAttribute("user", user);
@@ -64,10 +58,12 @@ public class NewCustomerServlet extends HttpServlet {
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
-        
-     }
+   // response.getWriter().println("hit");
+    }
+    
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, 
+            HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);
     }

@@ -55,10 +55,10 @@ public class NewCustomerServlet extends HttpServlet {
             url = "/Success.jsp";
             
         }
+        
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
-   // response.getWriter().println("hit");
     }
     
     @Override

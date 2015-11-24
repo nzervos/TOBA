@@ -17,7 +17,7 @@
             State: ${user.state}<br>
             Zip: ${user.zip}<br>
             E-mail: ${user.email}<br>
-            Username: ${user.username}<br>
+            Username: ${user.userName}<br>
             Password: ${user.password}<br></p>
         <a href="Transaction.html">Back to Home</a> &nbsp;            
     </body>

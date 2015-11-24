@@ -18,7 +18,7 @@ public class User implements Serializable {
     private String state;
     private String zip;
     private String email;
-    private String userName;
+    private String username;
     private String password;
     
     public User(){
@@ -30,7 +30,7 @@ public class User implements Serializable {
         state = "";
         zip = "";
         email = "";
-        userName = "";
+        username = "";
         password = "";
     }
     
@@ -48,7 +48,7 @@ public class User implements Serializable {
         this.state = state;
         this.zip = zip;
         this.email = email;
-        this.userName = userName;
+        this.username = userName;
         this.password = password;
     
     }
@@ -89,7 +89,7 @@ public class User implements Serializable {
         return city;
     }
     
-     public void setCity(String city){
+    public void setCity(String city){
         this.city = city;
     }
     
@@ -97,7 +97,7 @@ public class User implements Serializable {
         return state;
     }
     
-     public void setState(String state){
+    public void setState(String state){
         this.state = state;
     }
     
@@ -105,7 +105,7 @@ public class User implements Serializable {
         return zip;
     }
     
-     public void setZip(String zip){
+    public void setZip(String zip){
         this.zip = zip;
     }
     
@@ -113,15 +113,23 @@ public class User implements Serializable {
         return email;
     }
     
-     public void setEmail(String email){
+    public void setEmail(String email){
         this.email = email;
     }
-     
-      public void setUserName(String userName){
-        this.userName = userName;
+    
+    public String getUserName(){
+        return username;
     }
-      
-       public void setPassword(String password){
+       
+    public void setUserName(String userName){
+        this.username = userName;
+    }
+    
+    public String getPassword(){
+        return password;
+    }
+        
+    public void setPassword(String password){
         this.password = password;
     }
     

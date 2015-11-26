@@ -1,9 +1,12 @@
+package toba.business;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+import toba.business.User;
 import static java.io.FileDescriptor.out;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import toba.data.UserDB;
 
 /**
  *
@@ -47,6 +51,7 @@ public class NewCustomerServlet extends HttpServlet {
             String userName = lastName.concat(zip);
             String password = "welcome1";
             User user = new User(firstName, lastName, phone, address, city, state, zip, email, userName, password);
+            UserDB.insert(user);
             
             request.setAttribute("user", user);
             HttpSession session = request.getSession();

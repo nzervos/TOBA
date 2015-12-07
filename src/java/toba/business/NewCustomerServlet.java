@@ -7,6 +7,7 @@ package toba.business;
  */
 
 import toba.business.User;
+import toba.business.Account;
 import static java.io.FileDescriptor.out;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import toba.business.Account.accountType;
+import toba.data.AccountDB;
 import toba.data.UserDB;
 
 /**
@@ -50,7 +53,14 @@ public class NewCustomerServlet extends HttpServlet {
             String email = request.getParameter("email");
             String userName = lastName.concat(zip);
             String password = "welcome1";
+            Double checkStartBalance = 0.00;
+            Double saveStartBalance = 25.00;
+                        
             User user = new User(firstName, lastName, phone, address, city, state, zip, email, userName, password);
+            Account userCheck = new Account(checkStartBalance, userName, accountType.Checking);
+            Account userSave = new Account(saveStartBalance, userName, accountType.Savings);
+            AccountDB.insert(userCheck);
+            AccountDB.insert(userSave);
             UserDB.insert(user);
             
             request.setAttribute("user", user);

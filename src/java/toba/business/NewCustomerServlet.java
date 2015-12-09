@@ -11,6 +11,7 @@ import toba.business.Account;
 import static java.io.FileDescriptor.out;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.NoSuchAlgorithmException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -55,6 +56,31 @@ public class NewCustomerServlet extends HttpServlet {
             String password = "welcome1";
             Double checkStartBalance = 0.00;
             Double saveStartBalance = 25.00;
+            
+            String message;
+            try {
+                PasswordUtil.checkPasswordStrength(password);
+                message = "";
+            } catch (Exception e) {
+                message = e.getMessage();
+            }
+            request.setAttribute("message", message);
+            
+            String hashedPassword;
+            String salt = "";
+            String saltedAndHashedPassword;
+            try {
+                hashedPassword = PasswordUtil.hashedPassword(password);
+                salt = PasswordUtil.getSalt();
+                saltedAndHashedPassword = PasswordUtil.hashAndSaltPassword(password);
+            } catch (NoSuchAlgorithmException ex) {
+                hashedPassword = ex.getMessage();
+                saltedAndHashedPassword = ex.getMessage();
+            }
+            
+            request.setAttribute("hassedPassword", hashedPassword);
+            request.setAttribute("salt", salt);
+            request.setAttribute("saltedAndHashedPassword", saltedAndHashedPassword);
                         
             User user = new User(firstName, lastName, phone, address, city, state, zip, email, userName, password);
             Account userCheck = new Account(checkStartBalance, userName, accountType.Checking);

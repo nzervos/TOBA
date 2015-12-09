@@ -11,14 +11,14 @@
                 <a href="New_customer.jsp">New Customer</a> &nbsp;
             </nav>
         </div>
-        <form action="LoginServlet" method="post">
-            <input type="hidden" name="action" value="add">
-            <label>Username:</label>
-            <input type="text" name="username" required><br>
-            <label>Password:</label>
-            <input type="password" name="password" required><br>
+        <form action="j_security_check" method="get">
+          
+            <label class = "pad_top">Username:</label>
+            <input type="text" name="j_username" ><br>
+            <label class = "pad_top">Password:</label>
+            <input type="password" name="j_password"><br>
             <input type="submit" name="submit" value="Login">
-            <input type="reset" name="reset" value="Reset">
+            
             
             
         </form>
